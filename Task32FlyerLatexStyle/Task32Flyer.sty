@@ -24,7 +24,7 @@
 % Set PDF Properties
 % -------------------------------------------------------------
 %\pdfinterwordspaceon
-\RequirePackage{pdf14}
+%\RequirePackage{pdf14}
 
 % -------------------------------------------------------------
 % Set Document Language
@@ -39,12 +39,14 @@
     right=1.5cm,
     bindingoffset=0pt,
     columnsep=1.5cm,
-    top=2.5cm,
-    headsep=1.5cm,
-    %bottom=2.5cm,
-    footskip= 1.5cm
-    ]{geometry}
-
+    tmargin = 60pt,
+    headheight = 48pt,
+    headsep = 6pt,
+    bmargin = 48pt,
+    %showframe
+    ]
+    {geometry}
+    
 \RequirePackage{tabularx}
 \RequirePackage{float}
 
@@ -86,6 +88,12 @@
 % gensymb. Required for degrees symbol
 \RequirePackage{textcomp}
 \RequirePackage{gensymb}
+
+% paragraph spacing
+\linespread{1.0}
+\setlength{\parskip}{0.5em}
+\setlength{\floatsep}{6pt plus 2pt minus 4pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 4pt}
 
 % -------------------------------------------------------------
 % Corporate Colours
@@ -218,8 +226,8 @@
 \let\Title\@title
 
 \def\@maketitle{%
-	% add back the space we just borrowed
-	\vskip 2cm
+	% add back the space we just borrowed with the header
+	\vskip 4cm
     % generate the title
     %\textbf{An IEA Wind Task 32 White Paper}\par
   {\huge\noindent\fosfamily\color{Task32Blue}\@title \par}%
@@ -245,10 +253,11 @@
 \RequirePackage[format=plain,
     labelformat=simple,
     font={small},
-    labelfont={small},
-    textfont={small},
+    labelfont={it,small},
+    textfont={it,small},
     indention=0cm,
     labelsep=colon,
+    belowskip=0pt,
     justification=centering,
     singlelinecheck=true,
     tableposition=top,
@@ -365,7 +374,7 @@
 % --------------------
 % Set up the first page
 % --------------------
-\fancypagestyle{firststyle}{
+\fancypagestyle{cover}{
     % set the geometry for the first page
     \fancyhf{}%
     % header
@@ -381,24 +390,25 @@
     % footers
     \renewcommand{\footrulewidth}{0.5pt}
     \cfoot{%
-    	\noindent
-    \begin{tabularx}{\textwidth}[h]{%
-    		% remove spacing between columns
-    		@{}>{\raggedright}m{.33\textwidth}@{}%
-    		@{}>{\centering}m{.33\textwidth}@{}%
-    		@{}>{\raggedleft}m{.34\textwidth}@{}}
-    	% left footer
-    	{\textbf{IEA Wind Task 32}\\
-    		\@shorttitle%
-    	} &
-    	% center footer
-    	\href{http://creativecommons.org/licenses/by-sa/4.0/}{\includegraphics[height=1.0cm]{graphics/CC-BY-SA.png}}
-    	&
-    	% right footer
-    	{\DOIbadge{\@DOI} {\footnotesize Version \@version:\ \pubdate}}
-    \end{tabularx}
+    	\noindent%
+            \begin{tabularx}{\textwidth}[h]{%
+                % remove spacing between columns
+                @{}>{\raggedright}m{.33\textwidth}@{}%
+                @{}>{\centering}m{.33\textwidth}@{}%
+                @{}>{\raggedleft}m{.34\textwidth}@{}}
+    	        % left footer
+    	        {\textbf{IEA Wind Task 32}\\
+    		        \@shorttitle%
+    	        }
+    	    &
+    	        % center footer
+    	        \href{http://creativecommons.org/licenses/by-sa/4.0/}{\includegraphics[height=1.0cm]{graphics/CC-BY-SA.png}}
+    	    &
+    	        % right footer
+    	        {\DOIbadge{\@DOI} {\footnotesize Version \@version:\ \pubdate}}
+            \end{tabularx}
 		}
-}
+    }
 
 % --------------------
 % Set up the other pages
@@ -441,9 +451,8 @@
 \pdfcompresslevel=9
 \pdfobjcompresslevel=3
 
-
 % fix header spacing
-\setlength{\headheight}{46pt}
+%\setlength{\headheight}{43pt}
 
 %---------------------------------
 % THINGS WE NEED TO DO AT THE START OF A DOCUMENT
