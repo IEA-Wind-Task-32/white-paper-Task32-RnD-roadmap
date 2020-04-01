@@ -20,12 +20,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-
-    - name: Compile LateX
-      uses: vinay0410/tectonic-action@v1.1.2
+    - uses: actions/checkout@v1
+    - name: Compilation
+      uses: vinay0410/tectonic-action@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-      # Path of Tex File
-      tex_path: main.tex
-      # String stating whether to push output PDF, PDF will only be pushed in case of "yes"
-      push: yes # optional, default is no
+        tex_path: 'main.tex'
+        push: 'yes
