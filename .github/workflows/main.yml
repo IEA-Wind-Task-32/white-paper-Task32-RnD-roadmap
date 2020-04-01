@@ -27,4 +27,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tex_path: 'main.tex'
-        push: 'yes
+        push: 'yes'
