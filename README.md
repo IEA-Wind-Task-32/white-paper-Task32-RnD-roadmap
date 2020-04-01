@@ -1,4 +1,5 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3374354.svg)](https://doi.org/10.5281/zenodo.3374354)
+![CI](https://github.com/IEA-Wind-Task-32/white-paper-Task32-RnD-roadmap/workflows/CI/badge.svg)
 
 # IEA Wind Task32 Collaborative R&D Roadmap
 IEA Wind Task 32 coordinates a range of research and development activities for wind lidar for wind energy applications. In order to help Task members and others keep an overview of what's happening in the Task, we have created a visual road map showing these activities.
