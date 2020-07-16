@@ -32,7 +32,7 @@
 \RequirePackage[british]{babel}
 
 % -------------------------------------------------------------
-% Set paper layout (geometry) 
+% Set paper layout (geometry)
 % -------------------------------------------------------------
 \RequirePackage[a4paper,
     left=1.5cm,
@@ -99,7 +99,7 @@
 % Corporate Colours
 % -------------------------------------------------------------
 \RequirePackage{color}
-\RequirePackage[usenames,tables]{xcolor}
+\RequirePackage[usenames,tables,svgnames]{xcolor}
 % see example of colors here https://tex.stackexchange.com/questions/18008/use-css-style-color-specifications-in-xcolor
 \definecolor{Task32Blue}{HTML}{127bca}
 \definecolor{Task32Blue2}{HTML}{52a5e0}
@@ -109,6 +109,9 @@
 % set font color
 \definecolor{TextGrey}{HTML}{32323C}
 \color{TextGrey}
+
+% define a light grey
+\definecolor{TextLightGrey}{HTML}{84848a}
 
 \normalfont\normalsize
 
@@ -222,17 +225,22 @@
 % -------------------------------------------
 % Title / Title Page
 % -------------------------------------------
+
+\newcommand\@doctype{}
+\newcommand\doctype[1]{\renewcommand\@doctype{#1}}
+
+
 \let\Date\@date
 \let\Title\@title
 
 \def\@maketitle{%
 	% add back the space we just borrowed with the header
 	\vskip 4cm
-    % generate the title
-    %\textbf{An IEA Wind Task 32 White Paper}\par
-  {\huge\noindent\fosfamily\color{Task32Blue}\@title \par}%
-    \vskip 12pt%
-  }
+    % title
+    % \textbf{\@doctype}\par
+    {\huge\noindent\fosfamily\color{Task32Blue}\@title \par}
+    \vskip 12pt
+    }% end of maketitle
 
 % -------------------------------------------
 % Chapter and section markings
@@ -241,12 +249,17 @@
     \@startsection{section}{1}{\z@}
     {6pt}
     {3pt}
-    {\color{Task32Blue}\fosfamily\large\ltseries\selectfont}}
+    {\color{Task32Blue}\fosfamily\large\sbseries\selectfont}}
 \renewcommand{\subsection}{%
     \@startsection{subsection}{2}{\z@}
     {3pt}
     {1pt}
     {\color{Task32Blue}\fosfamily\normalsize\sbseries\selectfont}}
+\renewcommand{\subsubsection}{%
+        \@startsection{subsubsection}{3}{\z@}
+        {3pt}
+        {1pt}
+        {\fosfamily\normalsize\sbseries\selectfont}}
 
 % Format Captions
 % see e.g. http://www.peteryu.ca/tutorials/publishing/latex_captions for details of how to adjust
@@ -356,11 +369,58 @@
         interior style={top color=LHScolor,bottom color=LHScolor!60!black},
         segmentation style={top color=ABlue,bottom color=ABlue!60!black},
 ]{%
-\droptextshadow{LHScolor}{DOI}% <-- Drop shadow + text for DOI 
+\droptextshadow{LHScolor}{DOI}% <-- Drop shadow + text for DOI
 }{%
 \droptextshadow{ABlue}{\hypersetup{hidelinks=true}\href{http://dx.doi.org/#1}{\fontfamily{phv}\selectfont #1}}% <-- Drop shadow + text for reference number + hyperref
 }%
 }
+
+%---------------------------------
+% QUOTATION
+%----------------------------------
+\RequirePackage{libertine} % or any other font package
+\newcommand*\quotefont{\fontfamily{LinuxLibertineT-LF}} % selects Libertine as the quote font
+\RequirePackage{framed}
+
+\newcommand*\quotesize{60} % if quote size changes, need a way to make shifts relative
+% Make commands for the quotes
+\newcommand*{\openquote}
+   {\tikz[remember picture,overlay,xshift=-4ex,yshift=-2.5ex]
+   \node (OQ) {\quotefont\fontsize{\quotesize}{\quotesize}\selectfont``};\kern0pt}
+
+\newcommand*{\closequote}[1]
+  {\tikz[remember picture,overlay,xshift=4ex,yshift={#1}]
+   \node (CQ) {\quotefont\fontsize{\quotesize}{\quotesize}\selectfont''};}
+
+% select a colour for the shading
+\colorlet{shadecolor}{Task32Blue!20}
+
+\newcommand*\shadedauthorformat{\emph} % define format for the author argument
+
+% Now a command to allow left, right and centre alignment of the author
+\newcommand*\authoralign[1]{%
+  \if#1l
+    \def\authorfill{}\def\quotefill{\hfill}
+  \else
+    \if#1r
+      \def\authorfill{\hfill}\def\quotefill{}
+    \else
+      \if#1c
+        \gdef\authorfill{\hfill}\def\quotefill{\hfill}
+      \else\typeout{Invalid option}
+      \fi
+    \fi
+  \fi}
+% wrap everything in its own environment which takes one argument (author) and one optional argument
+% specifying the alignment [l, r or c]
+%
+\newenvironment{shadequote}[2][l]%
+{\authoralign{#1}
+\ifblank{#2}
+   {\def\shadequoteauthor{}\def\yshift{-2ex}\def\quotefill{\hfill}}
+   {\def\shadequoteauthor{\par\authorfill\shadedauthorformat{#2}}\def\yshift{2ex}}
+\begin{snugshade}\begin{quote}\openquote}
+{\shadequoteauthor\quotefill\closequote{\yshift}\end{quote}\end{snugshade}}
 
 %---------------------------------
 % HEADER AND FOOTER
@@ -383,7 +443,7 @@
         \begin{tikzpicture}[remember picture,overlay]
         \draw  let \p1=($(current page.north)-(current page header area.south)$),
             \n1={veclen(\x1,\y1)} in
-            node [inner sep=0,outer sep=0,below right] 
+            node [inner sep=0,outer sep=0,below right]
             at (current page.north west){\includegraphics[width=\paperwidth, height=5cm]{graphics/banner.png}};
         \end{tikzpicture}%
         }
