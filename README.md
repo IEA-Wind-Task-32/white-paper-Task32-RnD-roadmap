@@ -29,6 +29,8 @@ N.B: if you cite https://doi.org/10.5281/zenodo.3374354, you are citing  content
 - 2019 December 1: First written version. [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3374354.svg)](https://doi.org/10.5281/zenodo.3374354)
 - 2019 October 21: Updated graphical version. [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3515444.svg)](https://doi.org/10.5281/zenodo.3515444)
 - 2019 July 31: first graphical version. [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3374355.svg)](https://doi.org/10.5281/zenodo.3374355)
+- 2019 December 1: first written version. ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3604290.svg)](https://doi.org/10.5281/zenodo.3604290)
+- 2020 August 7:
 
 # How to provide feedback to the roadmap
 We welcome constructive feedback on the roadmap. There are two ways to provide feedback to this document.

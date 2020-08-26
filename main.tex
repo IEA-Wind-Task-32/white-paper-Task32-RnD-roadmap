@@ -255,7 +255,7 @@ Task 32 seeks to enable communication and collaboration between wind turbine OEM
 % Forecasting
 % -----------------------------------
 \newpage
-\subsection*{Forecasting}
+\subsection*{Forecasting for wind energy}
 Because of their ability to look upwind, wind lidar can be used to forecast the winds arriving at wind plants or wind turbines 10 minutes or more in advance. This can be used to forecast energy output or make wind turbine- and wind farm- level control decisions.
 
 Task 32 and Task 36 (Forecasting) worked together to establish the opportunities and needs for such minute-scale forecasts.
@@ -278,17 +278,26 @@ Task 32 and Task 36 (Forecasting) worked together to establish the opportunities
 % # Performance verification
 % -----------------------------------
 \newpage
-\section*{How can we use lidar for performance verification?}
+\section*{How can we use lidar for wind turbine performance verification?}
 Wind lidars can be deployed on the ground or on nacelles for temporary power performance testing, or integrated into the turbine for continuous monitoring. They can characterise the wind shear and veer across the rotor disk, and thus are very useful for detailed performance studies.
 
-Task 32 supported validation of the uncertainty guidance in Edition 2 of the IEC 61400-121 Standard (2017) \cite{IEC_standard_61400-12-1_2017}. Since then the Task has looked at the use of nacelle-mounted lidar in complex terrain (Roadmap \ref{rm:NacelleMountedComplexTerrain}) and at using measurements in the wind turbine induction zone as input to a performance verification (Roadmap \ref{rm:InductionZone}).
+\subsection*{Ground-based lidar in simple terrain}
+The use of ground-based lidar for wind turbine power performance testing is a mature use case. It is documented in the IEC 61400-12-1 (2017) standard. Task 32 supported validation of the uncertainty guidance in Edition 2 of the IEC 61400-121 Standard (2017) \cite{IEC_standard_61400-12-1_2017}. Task 32 also provided support to the Power Curve Working Group (PCWG) experience sharing exercises in this area \citep[see][]{Lee_2020_a}, which are being continued by CFARS.
+
+There is a need to reduce the uncertainty assigned to ground-based remote sensing devices. Task 32 members continue to share their experience and new ideas for this use case and we welcome proposals for future activities.
+
+\subsection*{Ground-based lidar in complex terrain}
+The use of ground-based lidar for power performance measurements in complex terrain depends upon the ability of data processing tools to effectively characterise the inflow wind in a way that is relevant for a wind turbine. Currently, this means the ability to process lidar data so that it corresponds to a traditional point wind measurement using a met mast, or to a rotor-averaged wind speed derived from met mast measurements.
+
+Task 32 is exploring the use of wind lidar in complex terrain as a basic technical challenge, separately from its use for power performance testing (Roadmap \ref{rm:complex}). Our future plans will depend on these results and will be developed together with CFARS and other stakeholders. We welcome proposals for future activities.
 
 % -----------------------------------
 % ## Nacelle-mounted lidar in complex terrain
 % -----------------------------------
 \subsection*{Nacelle-mounted lidar in complex terrain}
+The use of nacelle-mounted lidar for power performance testing using nacelle-mounted lidar in simple terrain is being standardised in IEC 61400-50-3. A draft for approval was released in August 2020.
 
-It can be challenging to relate wind conditions at a turbine's location to a reference wind measurement, especially in complex (inhomogenous) wind conditions associated with complex terrain. Instead, it may be possible to use nacelle-mounted lidar to measure upwind of the turbine and use that data for power performance verification.
+It can be challenging to relate wind conditions at a turbine's location to a reference wind measurement in the wind conditions associated with complex terrain. Instead, it may be possible to use nacelle-mounted lidar to measure upwind of the turbine and use that data for power performance verification.
 
 %\todo[inline]{@Rozenn - do you think this is OK? it's based on the material we wrote for the Task 32 website}
 
@@ -312,6 +321,7 @@ It can be challenging to relate wind conditions at a turbine's location to a ref
 % -----------------------------------
 % ## Measurements in the induction zone
 % -----------------------------------
+\clearpage
 \newpage
 \subsection*{Measurements in the induction zone of wind turbines}
 % link this to other activities
@@ -337,6 +347,10 @@ Task 32's experience suggests that it may be feasible to use measurements closer
 	\end{RMnew}
 \end{roadmap}
 
+\subsection*{Power performance testing of offshore wind turbines}
+Power performance testing of offshore wind turbines can be carried out using floating lidar systems (Roadmap \ref{rm:FLS}), using nacelle-mounted lidar that measure in the induction zone (Roadmap \ref{rm:InductionZone}) or further upwind (see e.g. IEC 61400-50-3 developments).
+
+In 2020 the Carbon Trust Offshore Wind Accelerator initiated a study to establish possible methods for measuring winds for power performance testing from transition piece. Task 32 seeks to work with the OWA to align this with other use cases.
 % -----------------------------------
 % Hardware and Software Collaboration
 % -----------------------------------
@@ -392,6 +406,7 @@ Task 32 is facilitated by Operating Agents who are in turn supported by a 12-per
 % -----------------------------------
 % Get involved
 % -----------------------------------
+\newpage
 \section*{Providing input to future versions}
 The Task 32 roadmap has been developed by the Task 32 Operating Agent and Advisory Board based on input from the Task's stakeholders. The easiest way to help set the Task's future direction is therefore to get involved with the Task. We welcome participants at our events from any of Task 32's member countries, and encourage observers from the rest of the IEA wind member countries. We'd love to hear your opinions about what we should be doing, or ideas for solutions that benefit the whole community. Please see the \href{https://community.ieawind.org/task32/events/upcomingevents}{Task 32 website} for information about our events.
 
