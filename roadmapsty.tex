@@ -2,7 +2,7 @@
 
 \newtcolorbox[use counter=roadmap, list inside=roadmap,]{roadmap}[2][]{float=htb,
         before={\noindent},
-		halign=flush left, 
+		halign=flush left,
 		title={Roadmap \thetcbcounter: #2},
 		list text = {#2},
 		coltitle=white,
@@ -12,13 +12,13 @@
 		halign title=flush center,
 		toptitle=3pt,
 		bottomtitle = 3pt,
-		every float=\centering, 
+		every float=\centering,
 		width=1.0\columnwidth,
 		boxsep=0pt,
 		left=3pt,
 		right=3pt,
 		top=3pt,
-		colback=Task32Blue!10!white, 
+		colback=Task32Blue!10!white,
 		colframe=Task32Blue,
 		subtitle style = {colback=Task32Blue!10!white,
 		        colframe=Task32Blue!10!white,
@@ -34,7 +34,7 @@
 	% #3 is the explanatory text
 	\ifthenelse{\equal{#1}{}}{}{\textbf{#1:}\ }
 	{#2}
-	\ifthenelse{\equal{#3}{}}{}{\par\emph{#3}}
+	\ifthenelse{\equal{#3}{}}{\ignorespaces}{\par\emph{#3}}
 }
 
 \newcommand{\taskevent}[5]{
@@ -42,14 +42,14 @@
 	% #2 is the month, quarter, whatever
 	% #3 is the over-title
 	% #4 is the heading
-	% #5 is the explanatory text	
+	% #5 is the explanatory text
 	#1 & #2 & \event{#3}{#4}{#5}
 }
 
 \newcommand{\otherevent}[3]{
 	% #1 is the year
 	% #2 is the month, quarter, whatever
-	% #3 is the explanatory text	
+	% #3 is the explanatory text
 	\emph{{\color{TextGrey!50!white}#1}} & \emph{{\color{TextGrey!50!white}#2}} & \emph{{\color{TextGrey!50!white}#3}}
 }
 
@@ -58,30 +58,15 @@
 	#2
 }
 
-% make some subtitles
-\newcommand{\RMgoal}[1]{%
-    \ifthenelse{\equal{#1}{}}{%empty
-    }{%Nonempty.
-    \rmsubtitle{Our goal}{#1}}
-    }
+% make some structure
 \newcommand{\RMactivities}{%
     \rmsubtitle{Activities}
     }%
-\newcommand{\RMdeliverables}[1]{%
-    \ifthenelse{\equal{#1}{}}{%empty
-    }{%Nonempty.
-    \rmsubtitle{Deliverables}{#1}}
-    }
-\newcommand{\RMoutcome}[1]{%
-    \ifthenelse{\equal{#1}{}}{%empty
-    }{%Nonempty.
-    \rmsubtitle{Outcome}{#1}}
-    }
 
 % Make a table for old activities
 \newenvironment{RMold}%
 {% before
-\begin{tabular}{@{}p{0.075\columnwidth} p{0.075\columnwidth} p{0.7\columnwidth}@{}} 
+\begin{tabular}{@{}p{0.075\columnwidth} p{0.075\columnwidth} p{0.7\columnwidth}@{}}
 }
 {% after
 \end{tabular}
